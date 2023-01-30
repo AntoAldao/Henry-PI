@@ -20,7 +20,7 @@ const GameCard = (props) => {
                 <div className={style.genres}>
                     <ul className={style.list}>
                         {props.genres?.map((genre, index) => {
-                            return <li key={index}>{genre}</li>
+                            return <p key={index}>{genre}</p>
                         })}
                     </ul>
                     <Link to={`/videogame/${props.id}`}>
