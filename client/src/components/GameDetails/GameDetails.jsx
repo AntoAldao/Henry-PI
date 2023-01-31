@@ -76,7 +76,7 @@ const GameDetails = (props) => {
                                 ›
                             </span>
                         </button>
-                        <span className={style.titles}>Descripion</span>
+                        <button value ="Description" onClick={handleShow} className={style.titles}>Descripion</button>
                     </li>
                     <li className={style.liinfo}>
                         <button value ="Genres" onClick={handleShow} className={style.binfo} ref={genresRef}  >
@@ -84,7 +84,7 @@ const GameDetails = (props) => {
                                 ›
                             </span>
                         </button>
-                        <span className={style.titles} >Genres</span>
+                        <button value ="Genres" onClick={handleShow} className={style.titles} >Genres</button>
                     </li >
                     <li className={style.liinfo}>
                         <button value ="Platforms" onClick={handleShow} className={style.binfo} ref={platformsRef}  >
@@ -92,7 +92,7 @@ const GameDetails = (props) => {
                                 ›
                             </span>
                         </button>
-                        <span className={style.titles} >Platforms</span>
+                        <button value ="Platforms" onClick={handleShow} className={style.titles} >Platforms</button>
                     </li>
                     <li className={style.liinfo}>
                         <button value ="Rating" onClick={handleShow} className={style.binfo} ref={ratingRef} >
@@ -100,7 +100,7 @@ const GameDetails = (props) => {
                                 ›
                             </span>
                         </button>
-                        <span className={style.titles}>Rating</span>
+                        <button value ="Rating" onClick={handleShow} className={style.titles}>Rating</button>
                     </li>
                     <li className={style.liinfo}>
                         <button value = "Released" onClick={handleShow} className={style.binfo} ref={releasedRef}  >
@@ -108,7 +108,7 @@ const GameDetails = (props) => {
                                 ›
                             </span>
                         </button>
-                        <span className={style.titles}>Released</span>
+                        <button value = "Released" onClick={handleShow}  className={style.titles}>Released</button>
                     </li>
                 </ul>
             </div>

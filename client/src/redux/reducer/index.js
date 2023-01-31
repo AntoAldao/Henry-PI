@@ -51,6 +51,11 @@ const rootReducer = (state = initialState, action) => {
             }
             if (!state.searchedgames.length && state.isSearched){
                 videogames = ["No results found"];
+                return {
+                    ...state,
+                    videogames : videogames
+                }
+        
             }
 
             if (state.OrderBy === "Name A-Z") {

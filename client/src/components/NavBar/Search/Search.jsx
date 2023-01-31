@@ -28,12 +28,12 @@ const Search = () => {
     }
 
     return (
-        <div className={style.search}>
+        <form className={style.search}>
             <input type="text" value={name} onChange = {handleChange} className={style.input}/>
-            <button onClick={handleSubmit} className={style.button}>
+            <button type = "submit" onClick={handleSubmit} className={style.button} autoFocus>
                 <img src={lupa} alt="lupa" width="20px" height="20px"/>
             </button>
-        </div>
+        </form>
     );
 }
 export default Search;

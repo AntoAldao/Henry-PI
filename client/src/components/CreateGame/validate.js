@@ -1,6 +1,7 @@
 function isUrl(s) {   
     var regexp = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/g;
-    return regexp.test(s);
+    var regexp2 = /[-a-zA-Z0-9@:%.\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%\+.~#?&//=]*)?/gi;
+    return regexp.test(s) || regexp2.test(s);
 }
 function isDate(s) {
     var regexp = /(\d{4})-(\d{2})-(\d{2})/g;
@@ -24,10 +25,10 @@ const  validate = (game) => {
     else if ( !game.platforms.length) {
         errors.platforms = "Platform is required"
     }
-    else if (String(parseInt(game.rating)) === "NaN" && game.rating !== ""){
+    else if (String(parseFloat(game.rating)) === "NaN" && game.rating !== ""){
         errors.rating = "Rating must be a number"
     }
-    else if (parseInt(game.rating) < 0 || parseInt(game.rating) > 5) {
+    else if (parseFloat(game.rating) < 0 || parseFloat(game.rating) > 5) {
         errors.rating = "Rating must be between 0 and 5"
     }
     else if (!game.released ) {
