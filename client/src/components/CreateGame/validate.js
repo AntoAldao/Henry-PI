@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 function isUrl(s) {   
     var regexp = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/g;
     var regexp2 = /[-a-zA-Z0-9@:%.\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%\+.~#?&//=]*)?/gi;
@@ -7,12 +8,17 @@ function isDate(s) {
     var regexp = /(\d{4})-(\d{2})-(\d{2})/g;
     return regexp.test(s);
 }
-const  validate = (game) => {
-    console.log(game.image)
+
+const  validate = (game,allVideogames) => {
+    const names = allVideogames.map((game) => game.name.toLowerCase())
     const errors = {}
     if (!game.name  ) {
         errors.name ="Name is required"
     }
+    if(names.includes(game.name.toLowerCase())) {
+        errors.name = "Name already exists"
+    }
+        
     else if (!isUrl(game.image) && game.image !== "") {
         errors.image = "image must be a valid URL"
     }

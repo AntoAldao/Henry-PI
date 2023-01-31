@@ -36,7 +36,26 @@ const Home = () => {
     
     //PAGINATION
     const handlePage = (e) => {
-        dispatch(setPage(e.target.innerHTML))
+        console.log(typeof page)
+        if (e.target.value === "next") {
+            if (page < Math.ceil(videogames.length/15)) {
+                dispatch(setPage(page + 1))
+            }
+        }
+        else if (e.target.value === "prev") {
+            if (page > 1) { 
+                dispatch(setPage(page - 1))
+            }
+        }
+        else if (e.target.value === "first") {
+            dispatch(setPage(1))
+        }
+        else if (e.target.value === "last") {
+            dispatch(setPage(Math.ceil(videogames.length/15)))
+        }
+        else{
+            dispatch(setPage(parseInt(e.target.innerHTML)))
+        }
         dispatch(stateToSave());
 
        
@@ -71,7 +90,6 @@ const Home = () => {
         }
         dispatch(stateToSave());
     }, [videogames])
-    console.log(useHistory())
     return (
         
         <div className={style.generaldiv} style = {{height:`${loading? "100vh":"auto"}`}}>
@@ -97,6 +115,8 @@ const Home = () => {
                 />
                     
                 <div className={style.pages}>
+                    <button value="first"className={style.buttonpages} onClick={handlePage}>«</button>
+                    <button  value="prev"className={style.buttonpages} onClick={handlePage}>‹</button>  
                     {pages?.map((p, index) => {
                             return (
                                 <button key={index} 
@@ -109,6 +129,9 @@ const Home = () => {
                                 </button>
                             )
                         })}
+                    
+                    <button value="next" className={style.buttonpages} onClick={handlePage}>›</button>
+                    <button value="last"className={style.buttonpages} onClick={handlePage}>»</button>
                 </div>
                 <img src={headphones} className={style.headphones}/>
                 

@@ -13,6 +13,7 @@ const CreateGame = (props) => {
     const dispatch = useDispatch()
     const genres = useSelector((state) => state.genres)
     const platforms = useSelector((state) => state.platforms)
+    const allVideogames = useSelector((state) => state.allVideogames)
     const [disabled, setDisabled] = useState(true)
     const [genresElected, setGenresElected] = useState([])
     
@@ -62,7 +63,7 @@ const CreateGame = (props) => {
         setErrors(validate({
             ...game,
             [e.target.name]: e.target.value
-        }))
+        }, allVideogames))
     }
 
     const handleSubmit = async(e) => {
